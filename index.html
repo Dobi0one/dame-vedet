@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vyhledávač</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e4002b; /* Červené pozadí */
+            color: #fff; /* Bílé písmo */
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff; /* Bílé pozadí */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            color: #000; /* Černý text */
+        }
+        h1 {
+            text-align: center;
+            color: #e4002b; /* Červená barva */
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        form {
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #e4002b; /* Červená barva */
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #e4002b; /* Červená barva */
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        input[type="submit"]:hover {
+            background-color: #c8001d; /* Tmavší červená */
+        }
+        #vysledky {
+            margin-top: 20px;
+        }
+        .vysledek {
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            color: #000; /* Černý text */
+        }
+        .nazev {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #e4002b; /* Červená barva */
+        }
+        .otazka {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .dark-mode {
+            background-color: #000; /* Černé pozadí pro Dark Mode */
+            color: #fff; /* Bílé písmo pro Dark Mode */
+        }
+        .dark-mode .container {
+            background-color: #333; /* Tmavě šedé pozadí pro Dark Mode */
+            border: 1px solid #555; /* Tmavě šedý okraj pro Dark Mode */
+        }
+        .dark-mode input[type="text"] {
+            border: 2px solid #c8001d; /* Tmavě červená barva pro Dark Mode */
+            background-color: #222; /* Tmavě šedé pozadí pro input */
+            color: #fff; /* Bílé písmo pro input */
+        }
+        .dark-mode input[type="submit"] {
+            background-color: #c8001d; /* Tmavě červená barva pro Dark Mode */
+        }
+        .dark-mode .vysledek {
+            background-color: #444; /* Tmavě šedé pozadí pro výsledky */
+            border: 1px solid #666; /* Tmavě šedý okraj pro výsledky */
+        }
+        .dark-mode .nazev {
+            color: #c8001d; /* Tmavě červená barva pro nadpisy */
+        }
+        .toggle-button {
+            padding: 10px 20px;
+            background-color: #e4002b; /* Červené pozadí pro tlačítko */
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 20px auto;
+            display: block;
+            width: fit-content;
+        }
+        .toggle-button:hover {
+            background-color: #c8001d; /* Tmavší červená */
+        }
+    </style>
+</head>
+<body>
+    <button class="toggle-button" onclick="toggleDarkMode()">Přepnout na Tmavý Režim</button>
+    <div class="container">
+        <h1>Vyhledávač míst v ČR <span style="font-size: 0.5em;">2.0</span></h1>
+        <form onsubmit="vyhledat(event)">
+            <input type="text" id="dotaz" placeholder="Zadejte hledaný výraz">
+            <br>
+            <input type="submit" value="Vyhledat">
+        </form>
+        <div id="vysledky">
+            <!-- Zde se zobrazí výsledky vyhledávání -->
+        </div>
+    </div>
+
+    <script>
+        // Hardcodovaná data s názvem místa, otázkou a odpovědí
+        const mista = [
+			{ nazev: "Praha", otazka: "Jaké je hlavní město České republiky?", odpoved: "Praha" },
+            { nazev: "Paříž", otazka: "Kde se nachází Eiffelova věž?", odpoved: "Paříž" },
+            { nazev: "Mount Everest", otazka: "Co je nejvyšší horou světa?", odpoved: "Mount Everest" },
+            { nazev: "New York", otazka: "Které město je známé jako 'Velké jablko'?", odpoved: "New York" },
+            { nazev: "Norsko", otazka: "Která země je známá svými fjordy?", odpoved: "Norsko" },
+            { nazev: "Jaderná elektrárna Temelín", otazka: "Kdo vynalezl jaderný reaktor?", odpoved: "Enrico Fermi" },
+            { nazev: "Židova strouha", otazka: "Nedaleko které vesnice pramení potok Židova strouha?", odpoved: "Bzí" },
+            { nazev: "Veselské pískovny", otazka: "K pískovně neodmyslitelně patří chráněná lokalita. Jaká?", odpoved: "Pískový přesyp u Vlkova" },
+            { nazev: "Muzeum Kralické bible", otazka: "Kdy byl vynalezen knihtisk?", odpoved: "15. století" },
+            { nazev: "Český Krumlov", otazka: "V jakém roce se Český Krumlov zapsal do UNESCA?", odpoved: "1992" },
+            { nazev: "Koupaliště Divoká Šárka", otazka: "Jak se jmenuje potok, který protéká Šáreckým údolím?", odpoved: "Šárecký potok" },
+            { nazev: "Rozhledna Doubravka", otazka: "Z jakého dřeva je rozhledna primárně vyrobena?", odpoved: "Z akátu" },
+            { nazev: "Břevnovský klášter", otazka: "Jaký vodní pramen najdeme v zahradách kláštera?", odpoved: "Brusnice" },
+            { nazev: "Střed Prahy", otazka: "Kde je střed České republiky?", odpoved: "582 87 Číhošť" },
+            { nazev: "Národní památník na Vítkově", otazka: "K čemu sloužil památník v období komunismu?", odpoved: "Pohřebiště významných vůdců" },
+            { nazev: "Armádní muzeum Praha Žižkov", otazka: "Kolik hvězdic má armádní generál na výložce stejnokrojní uniformy?", odpoved: "4" },
+            { nazev: "Keltské oppidum Závist", otazka: "Jaký obor dovedli Keltové k mistrovství?", odpoved: "Šperkařství" },
+            { nazev: "Café Flexaret, Brno", otazka: "Co znamená v italštině Espresso?", odpoved: "Vytlačeno" },
+            { nazev: "Zámek Bučovice", otazka: "Do jakého slohu bychom zařadili zámek Bučovice?", odpoved: "Do renesančního" },
+            { nazev: "Žuráň u Podolí Brna", otazka: "Kdy byla bitva u Lipan?", odpoved: "30. května 1434" },
+            { nazev: "Poutní místo panny Marie", otazka: "Kolik proseb či žádostí k Bohu obsahuje Otčenáš?", odpoved: "7" },
+            { nazev: "Jižní pól Prahy", otazka: "Jaké je nejjižnější město v ČR?", odpoved: "Vyšší Brod" },
+            { nazev: "ZOO koutek Malá Chuchle", otazka: "Jaký jediný savec nemůže skákat?", odpoved: "Slon" },
+            { nazev: "Rozhledna Fajtův kopec", otazka: "Jak se jmenuje kostel ve Velkém Meziříčí, ve kterém můžete navštívit rozhlednu?", odpoved: "Kostel sv. Mikuláše" },
+            { nazev: "Včelařský skanzen Humpolec", otazka: "Má trubec žihadlo?", odpoved: "Ne" },
+            { nazev: "Hotel farma", otazka: "Kolik procent milovníků kávy se řadí mezi gurmety?", odpoved: "30%" },
+            { nazev: "Jihočeská ZOO Hluboká nad Vltavou", otazka: "Z kolika procent vody je složena medúza?", odpoved: "95%" },
+            { nazev: "Holašovické Stonehenge", otazka: "Kolik váží největší menhir Skála?", odpoved: "86 tun" },
+            { nazev: "ZOO Tábor", otazka: "Čím jsou sovy výjimečné?", odpoved: "Jediní z ptáků umí rozlišit modrou barvu." },
+            { nazev: "Zámek Červená Lhota", otazka: "Jakou barvu fasády měla původně Červená Lhota?", odpoved: "Bílá" },
+            { nazev: "Rozhledna Rýdův kopec", otazka: "Kolik dřevěných schodů vede na horní plošinu rozhledny?", odpoved: "128" },
+            { nazev: "MUO - Muzeum umění Olomouc", otazka: "Kdo údajně založil město Olomouc?", odpoved: "Julius Caesar" },
+            { nazev: "Propast Macocha", otazka: "Proč se říká Macoše Macocha?", odpoved: "Macecha shodila svého nevlastního syna do propasti." },
+            { nazev: "Moravský kras - Punkevní jeskyně", otazka: "Jaká jeskyně v Moravském krasu má nejbohatší krápníkovou výzdobu?", odpoved: "Jeskyně Balcarka" },
+            { nazev: "Jeskyně Býčí skála", otazka: "Která pohádka se v roce 2015 natáčela v prostorách jeskyně Býčí skála?", odpoved: "Koruní princ" },
+            { nazev: "Rudické propadlí", otazka: "Kolik metrů měří největší podzemní vodopád v ČR?", odpoved: "35" },
+            { nazev: "Pevnost poznání", otazka: "Kolik barev baretů má armáda České republiky?", odpoved: "6" },
+            { nazev: "Svatý kopeček Olomouc", otazka: "Panna Maria na Svatém Kopečku vzývána a uctívána jako...", odpoved: "Královna Moravy" },
+            { nazev: "ZOO Olomouc", otazka: "Jak vysoká je vyhlídková věž?", odpoved: "32" },
+            { nazev: "Vila Tugendhat", otazka: "Z jakého kamene je udělaná nejznámnější stěna ve vile?", odpoved: "Onyx" },
+            { nazev: "Labyrint pod Zelným trhem", otazka: "Jaký je původní název Zelného trhu?", odpoved: "Horní trh" },
+            { nazev: "Uměleckoprůmyslové muzeum", otazka: "Kdo je autorem díla Mrak, který najdete před uměleckoprůmyslovým muzeem?", odpoved: "Marek Jan Štěpán" },
+            { nazev: "Kafec Brno Úvoz", otazka: "Co nepatří mezi druhy pražení?", odpoved: "Pistáciové pražení" },
+            { nazev: "Národní muzeum", otazka: "Jak se jmenuje motýl, který patří mezi ohrožené druhy?", odpoved: "Modrásek černoskvrnný" },
+            { nazev: "Katedrála sv. Petra a Pavla Brno", otazka: "Jak jsou vysoko věže katedrály sv. Petra a Pavla?", odpoved: "84" },
+            { nazev: "BRuNO family park", otazka: "Kdy byla otevřena rozhledna BRuNO?", odpoved: "2017" },
+            { nazev: "Hvězdárna a planetárium Brno", otazka: "Jaký typ dalekohledu má hvězdárna a planetárium Brno?", odpoved: "Cassegrain" },
+            { nazev: "Jeskyně Výpustek", otazka: "Jeskyně Výpustek sloužila během druhé světové války jako továrna. Jaké výrobky se zde vyráběly?", odpoved: "Motory do stíhaček" },
+            { nazev: "Letecké muzeum Kunovice", otazka: "Kolik kusů letadel je v expozici?", odpoved: "23" },
+            { nazev: "Valtice", otazka: "Kdy se Valtice staly městem?", odpoved: "1872" },
+            { nazev: "Zámek Vizovice", otazka: "Jaký styl dominoval zámku?", odpoved: "Baroko" },
+            { nazev: "Malenovice", otazka: "Jak se jmenoval první majitel hradu?", odpoved: "Štěpán z Medlova" },
+            { nazev: "ZOO Lešná", otazka: "Kolik let letos slaví ZOO Lešná?", odpoved: "100" },
+            { nazev: "Zoo Hodonín", otazka: "Kolik druhů zvířat má Zoo Hodonín?", odpoved: "280" },
+			{ nazev: "Název", otazka: "Otázka", odpoved: "Odpověď" },
+            { nazev: "Zoopark Vyškov", otazka: "Kolik let letos slaví zoopark Vyškov?", odpoved: "55" }
+        ];
+
+        function vyhledat(event) {
+            event.preventDefault();
+            const dotaz = document.getElementById('dotaz').value.toLowerCase();
+            const vysledkyDiv = document.getElementById('vysledky');
+            vysledkyDiv.innerHTML = '';
+            
+            const vysledky = mista.filter(misto => misto.nazev.toLowerCase().includes(dotaz));
+            
+            if (vysledky.length > 0) {
+                vysledky.forEach(misto => {
+                    const vysledekDiv = document.createElement('div');
+                    vysledekDiv.classList.add('vysledek');
+                    vysledekDiv.innerHTML = `<div class="nazev">${misto.nazev}</div>
+                                             <div class="otazka">${misto.otazka}</div>
+                                             <div class="odpoved">${misto.odpoved}</div>`;
+                    vysledkyDiv.appendChild(vysledekDiv);
+                });
+            } else {
+                vysledkyDiv.innerHTML = '<div class="vysledek">Nebyly nalezeny žádné výsledky.</div>';
+            }
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            document.querySelector('.toggle-button').textContent = isDarkMode ? 'Přepnout na Světlý Režim' : 'Přepnout na Tmavý Režim';
+        }
+    </script>
+</body>
+</html>

@@ -195,6 +195,11 @@
         "odpoved": "1292"
     },
     {
+        "nazev": "název",
+        "otazka": "otázka",
+        "odpoved": "odpověď"
+    },
+    {
         "nazev": "Šikmá věž v Itálii",
         "otazka": "Kde se nachází šikmá věž?",
         "odpoved": "Pisa"

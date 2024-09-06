@@ -1,12 +1,202 @@
 [
     {
-        "nazev": "Praha",
-        "otazka": "Co je hlavním městem ČR?",
-        "odpoved": "Praha"
+        "nazev": "Jaderná elektrárna Temelín",
+        "otazka": "Kdo vynalezl jaderný reaktor?",
+        "odpoved": "Enrico Fermi"
     },
     {
-        "nazev": "Brno",
-        "otazka": "Co je hlavním městem Moravy?",
-        "odpoved": "Brno"
+        "nazev": "Židova strouha",
+        "otazka": "Nedaleko které vesnice pramení potok Židova strouha?",
+        "odpoved": "Bzí"
+    },
+    {
+        "nazev": "Veselské pískovny",
+        "otazka": "K pískovně neodmyslitelně patří chráněná lokalita. Jaká?",
+        "odpoved": "Pískový přesyp u Vlkova"
+    },
+    {
+        "nazev": "Muzeum Kralické bible",
+        "otazka": "Kdy byl vynalezen knihtisk?",
+        "odpoved": "15. století"
+    },
+    {
+        "nazev": "Český Krumlov",
+        "otazka": "V jakém roce se Český Krumlov zapsal do UNESCA?",
+        "odpoved": "1992"
+    },
+    {
+        "nazev": "Koupaliště Divoká Šárka",
+        "otazka": "Jak se jmenuje potok, který protéká Šáreckým údolím?",
+        "odpoved": "Šárecký potok"
+    },
+    {
+        "nazev": "Rozhledna Doubravka",
+        "otazka": "Z jakého dřeva je rozhledna primárně vyrobena?",
+        "odpoved": "Z akátu"
+    },
+    {
+        "nazev": "Břevnovský klášter",
+        "otazka": "Jaký vodní pramen najdeme v zahradách kláštera?",
+        "odpoved": "Brusnice"
+    },
+    {
+        "nazev": "Střed Prahy",
+        "otazka": "Kde je střed České republiky?",
+        "odpoved": "582 87 Číhošť"
+    },
+    {
+        "nazev": "Národní památník na Vítkově",
+        "otazka": "K čemu sloužil památník v období komunismu?",
+        "odpoved": "Pohřebiště významných vůdců"
+    },
+    {
+        "nazev": "Armádní muzeum Praha Žižkov",
+        "otazka": "Kolik hvězdic má armádní generál na výložce stejnokrojní uniformy?",
+        "odpoved": "4"
+    },
+    {
+        "nazev": "Keltské oppidum Závist",
+        "otazka": "Jaký obor dovedli Keltové k mistrovství?",
+        "odpoved": "Šperkařství"
+    },
+    {
+        "nazev": "Café Flexaret, Brno",
+        "otazka": "Co znamená v italštině Espresso?",
+        "odpoved": "Vytlačeno"
+    },
+    {
+        "nazev": "Zámek Bučovice",
+        "otazka": "Do jakého slohu bychom zařadili zámek Bučovice?",
+        "odpoved": "Do renesančního"
+    },
+    {
+        "nazev": "Žuráň u Podolí Brna",
+        "otazka": "Kdy byla bitva u Lipan?",
+        "odpoved": "30. května 1434"
+    },
+    {
+        "nazev": "Poutní místo panny Marie",
+        "otazka": "Kolik proseb či žádostí k Bohu obsahuje Otčenáš?",
+        "odpoved": "7"
+    },
+    {
+        "nazev": "Jižní pól Prahy",
+        "otazka": "Jaké je nejjižnější město v ČR?",
+        "odpoved": "Vyšší Brod"
+    },
+    {
+        "nazev": "ZOO koutek Malá Chuchle",
+        "otazka": "Jaký jediný savec nemůže skákat?",
+        "odpoved": "Slon"
+    },
+    {
+        "nazev": "Rozhledna Fajtův kopec",
+        "otazka": "Jak se jmenuje kostel ve Velkém Meziříčí, ve kterém můžete navštívit rozhlednu?",
+        "odpoved": "Kostel sv. Mikuláše"
+    },
+    {
+        "nazev": "Včelařský skanzen Humpolec",
+        "otazka": "Má trubec žihadlo?",
+        "odpoved": "Ne"
+    },
+    {
+        "nazev": "Hotel farma",
+        "otazka": "Kolik procent milovníků kávy se řadí mezi gurmety?",
+        "odpoved": "30%"
+    },
+    {
+        "nazev": "Jihočeská ZOO Hluboká nad Vltavou",
+        "otazka": "Z kolika procent vody je složena medúza?",
+        "odpoved": "95%"
+    },
+    {
+        "nazev": "Holašovické Stonehenge",
+        "otazka": "Kolik váží největší menhir Skála?",
+        "odpoved": "86 tun"
+    },
+    {
+        "nazev": "ZOO Tábor",
+        "otazka": "Čím jsou sovy výjimečné?",
+        "odpoved": "Jediní z ptáků umí rozlišit modrou barvu."
+    },
+    {
+        "nazev": "Zámek Červená Lhota",
+        "otazka": "Jakou barvu fasády měla původně Červená Lhota?",
+        "odpoved": "Bílá"
+    },
+    {
+        "nazev": "Rozhledna Rýdův kopec",
+        "otazka": "Kolik dřevěných schodů vede na horní plošinu rozhledny?",
+        "odpoved": "128"
+    },
+    {
+        "nazev": "MUO - Muzeum umění Olomouc",
+        "otazka": "Kdo údajně založil město Olomouc?",
+        "odpoved": "Julius Caesar"
+    },
+    {
+        "nazev": "Propast Macocha",
+        "otazka": "Proč se říká Macoše Macocha?",
+        "odpoved": "Macecha shodila svého nevlastního syna do propasti."
+    },
+    {
+        "nazev": "Moravský kras - Punkevní jeskyně",
+        "otazka": "Jaká jeskyně v Moravském krasu má nejbohatší krápníkovou výzdobu?",
+        "odpoved": "Jeskyně Balcarka"
+    },
+    {
+        "nazev": "Jeskyně Býčí skála",
+        "otazka": "Která pohádka se v roce 2015 natáčela v prostorách jeskyně Býčí skála?",
+        "odpoved": "Koruní princ"
+    },
+    {
+        "nazev": "Rudické propadlí",
+        "otazka": "Kolik metrů měří největší podzemní vodopád v ČR?",
+        "odpoved": "35"
+    },
+    {
+        "nazev": "Pevnost poznání",
+        "otazka": "Kolik barev baretů má armáda České republiky?",
+        "odpoved": "6"
+    },
+    {
+        "nazev": "Svatý kopeček Olomouc",
+        "otazka": "Panna Maria na Svatém Kopečku vzývána a uctívána jako...",
+        "odpoved": "Královna Moravy"
+    },
+    {
+        "nazev": "ZOO Olomouc",
+        "otazka": "Jak vysoká je vyhlídková věž?",
+        "odpoved": "32"
+    },
+    {
+        "nazev": "Vila Tugendhat",
+        "otazka": "Z jakého kamene je udělaná nejznámnější stěna ve vile?",
+        "odpoved": "Onyx"
+    },
+    {
+        "nazev": "Labyrint pod Zelným trhem",
+        "otazka": "Jaký je původní název Zelného trhu?",
+        "odpoved": "Horní trh"
+    },
+    {
+        "nazev": "Uměleckoprůmyslové muzeum v Brně",
+        "otazka": "Kdo je autorem díla Mrak, který najdete před uměleckoprůmyslovým muzeem?",
+        "odpoved": "Marek Jan Štěpán"
+    },
+    {
+        "nazev": "Kafec Brno Úvoz",
+        "otazka": "Jak se jmenovala první kavárna v Brně?",
+        "odpoved": "Café Erzherzog Johann"
+    },
+    {
+        "nazev": "Zelný trh",
+        "otazka": "V jakém roce začala pravidelná výstava ovoce a zeleniny na Zelném trhu?",
+        "odpoved": "1292"
+    },
+    {
+        "nazev": "Šikmá věž v Itálii",
+        "otazka": "Kde se nachází šikmá věž?",
+        "odpoved": "Pisa"
     }
 ]

@@ -1,0 +1,12 @@
+[
+    {
+        "nazev": "Praha",
+        "otazka": "Co je hlavním městem ČR?",
+        "odpoved": "Praha"
+    },
+    {
+        "nazev": "Brno",
+        "otazka": "Co je hlavním městem Moravy?",
+        "odpoved": "Brno"
+    }
+]

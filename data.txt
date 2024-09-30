@@ -195,6 +195,51 @@
         "odpoved": "1292"
     },
     {
+        "nazev": "Archeopark Pavlov",
+        "otazka": "Jak stará je Věstonická Venuše?",
+        "odpoved": "29 000-25 00 př. n. l."
+    },
+	{
+        "nazev": "Zámek Valtice",
+        "otazka": "Kolik obyvatel mají Valtice?",
+        "odpoved": "3575"
+    },
+	{
+        "nazev": "Lom u Mariánského mlýna",
+        "otazka": "Jaká surovina se zde těžila?",
+        "odpoved": "Vápenec"
+    },
+	{
+        "nazev": "Jeskýně na Turoldu",
+        "otazka": "Které město v Jihomoravském kraji je 2. nejlidnatější?",
+        "odpoved": "Znojmo"
+    },
+	{
+        "nazev": "Zámek Lednice",
+        "otazka": "Jak se Lednice jmenovaly za okupace?",
+        "odpoved": "Eisgrub"
+    },
+	{
+        "nazev": "Havranické vřesoviště v NP Podyjí",
+        "otazka": "Jaká zvířata pomáhají spásáním na Havranickém vřesovišti s údržbou lokality a chrání jej před zarůstáním?",
+        "odpoved": "divocí koně"
+    },
+	{
+        "nazev": "Café fara Klentnice",
+        "otazka": "Kde se většina kávy pěstuje a vyrábí?",
+        "odpoved": "Brazílie"
+    },
+	{
+        "nazev": "Znojemské podzemí",
+        "otazka": "Jaký je rozsah podzemních chodeb?",
+        "odpoved": "25km"
+    },
+	{
+        "nazev": "Aqualand Moravia",
+        "otazka": "Kde se nachází nejhlubší bazén na světě, který měří 60m?",
+        "odpoved": "V Dubaji"
+    },
+	{
         "nazev": "název",
         "otazka": "otázka",
         "odpoved": "odpověď"

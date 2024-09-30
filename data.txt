@@ -240,6 +240,16 @@
         "odpoved": "V Dubaji"
     },
 	{
+        "nazev": "ZOOPARK Vyškov",
+        "otazka": "Kolik vteřin si pamatuje zlatá rybka?",
+        "odpoved": "8 vteřin"
+    },
+	{
+        "nazev": "Slavkovský pivovar, Slavkov u Brna",
+        "otazka": "Co je to pivovar?",
+        "odpoved": "Místo, kde se vaří pivo."
+    },
+	{
         "nazev": "název",
         "otazka": "otázka",
         "odpoved": "odpověď"
